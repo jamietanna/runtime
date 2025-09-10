@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - build/govulncheck
   schedule:
     # Mondays at 0000
     - cron: "0 0 * * 1"
