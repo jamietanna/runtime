@@ -7,15 +7,14 @@ on:
     # Mondays at 0000
     - cron: "0 0 * * 1"
 jobs:
-  build:
-    name: Build
+  check-for-vulnerabilities:
+    name: Check for vulnerabilities using `govulncheck`
     runs-on: ubuntu-latest
     permissions:
       security-events: write
       contents: read
     steps:
-      - id: govulncheck
-        uses: golang/govulncheck-action@b625fbe08f3bccbe446d94fbf87fcc875a4f50ee # v1.0.4
+      - uses: golang/govulncheck-action@b625fbe08f3bccbe446d94fbf87fcc875a4f50ee # v1.0.4
         with:
           # to be explicit, we're only checking the top-level `oapi-codegen` package
           # we are intentionally NOT intending to keep on top of security updates in `internal/test` or `examples`, or any submodules thereof
