@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: govulncheck
-        uses: golang/govulncheck-action@v1
+        uses: golang/govulncheck-action@b625fbe08f3bccbe446d94fbf87fcc875a4f50ee # v1.0.4
         with:
           # to be explicit, we're only checking the top-level `oapi-codegen` package
           # we are intentionally NOT intending to keep on top of security updates in `internal/test` or `examples`, or any submodules thereof
@@ -23,7 +23,7 @@ jobs:
 
       # ... such as the Code Scanning tab (https://github.com/oapi-codegen/oapi-codegen/security/code-scanning?query=is%3Aopen+branch%3Amain+tool%3Agovulncheck)
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@192325c86100d080feab897ff886c34abd4c83a3 # v3.30.2
         with:
           sarif_file: govulncheck.sarif
           category: govulncheck
